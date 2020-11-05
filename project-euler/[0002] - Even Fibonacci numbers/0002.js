@@ -15,18 +15,17 @@
  * @solution: 4613732
  */
 
-let first = 0;
-let second = 1;
-let sum = 0;
-let result = 0;
+const utils = require('../../utils');
 
-while ((first + second) < 4000000) {
-    result = first + second;
-    first = second;
-    second = result;
+const fibonacciSequence = utils.fibonacci();
+let result, sum = 0;
+
+do {
+    result = fibonacciSequence.next();
 
     if (result % 2 === 0)
         sum += result;
-}
+} while (result < 4000000);
+
 
 console.log(`The solution is: ${sum}`);
