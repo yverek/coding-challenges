@@ -32,6 +32,8 @@
  * @solution: 23514624000
  */
 
+const utils = require('../../utils');
+
 let maxProduct = 0;
 const sequenceLength = 13;
 const data = '73167176531330624919225119674426574742355349194934' +
@@ -62,7 +64,7 @@ for (let i=0; i<=data.length - sequenceLength; i++) {
     if (tmpSequence.indexOf('0') >= 0)
         continue;
 
-    let tmpMax = tmpSequence.map(i => parseInt(i)).reduce((acc, cur) => acc * cur);
+    let tmpMax = utils.getProduct(tmpSequence.map(i => parseInt(i)));
     maxProduct = Math.max(tmpMax, maxProduct);
 }
 
