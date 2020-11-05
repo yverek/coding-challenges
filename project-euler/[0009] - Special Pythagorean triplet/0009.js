@@ -15,6 +15,8 @@
  * @solution: 31875000
  */
 
+const utils = require('../../utils');
+
 let product;
 
 for (let a=0; a<1000; a++) {
@@ -22,7 +24,7 @@ for (let a=0; a<1000; a++) {
         const c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
 
         if ((a + b + c) === 1000)
-            product = a * b * c;
+            product = utils.getProduct(a, b, c);
     }
 }
 
