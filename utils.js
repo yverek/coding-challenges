@@ -80,8 +80,6 @@ module.exports = {
          * @param {...number} nums - All the numbers you want to multiply
          * @return {number} The result of the multiplication
          */
-        if (Array.isArray(nums))
-            [nums] = [...nums];
 
         return nums.reduce((accumulator, current) => accumulator * current);
     },
@@ -92,8 +90,6 @@ module.exports = {
          * @param {...number} nums - All the numbers you want to sum
          * @return {number} The result of the sum
          */
-        if (Array.isArray(nums))
-            [nums] = [...nums];
 
         return nums.reduce((accumulator, current) => accumulator + current);
     }

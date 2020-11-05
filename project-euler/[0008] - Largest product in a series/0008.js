@@ -64,7 +64,7 @@ for (let i=0; i<=data.length - sequenceLength; i++) {
     if (tmpSequence.indexOf('0') >= 0)
         continue;
 
-    let tmpMax = utils.getProduct(tmpSequence.map(i => parseInt(i)));
+    let tmpMax = utils.getProduct(...tmpSequence.map(i => parseInt(i)));
     maxProduct = Math.max(tmpMax, maxProduct);
 }
 
