@@ -12,23 +12,10 @@
  * @solution: 906609
  */
 
-function isPalindrome(num) {
-    /*
-     * Return if a given number is palindrome
-     *
-     * @param {number} num - The number you want to check
-     * @return {boolean}
-     */
+const utils = require('../../utils');
 
-    num = num.toString().split('');
-
-    for (let i=0; i<Math.floor(num.length / 2); i++) {
-        if (num[i] !== num[num.length - 1 - i])
-            return false;
-    }
-
-    return true;
-}
+const MIN = 100;
+const MAX = 999;
 
 function findMaxPalindromeProduct(min, max) {
     /*
@@ -49,7 +36,7 @@ function findMaxPalindromeProduct(min, max) {
         while (second >= min) {
             product = first * second;
 
-            if (isPalindrome(product) && product > maxProduct)
+            if (utils.isPalindrome(product) && (product > maxProduct))
                 maxProduct = product;
 
             second--;
@@ -61,4 +48,4 @@ function findMaxPalindromeProduct(min, max) {
     return maxProduct;
 }
 
-console.log(`The solution is: ${findMaxPalindromeProduct(100, 999)}`);
+console.log(`The solution is: ${findMaxPalindromeProduct(MIN, MAX)}`);

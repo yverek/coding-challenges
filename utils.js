@@ -46,16 +46,31 @@ module.exports = {
         }
 
         // at this point, num MUST be odd
-        for (let i=3; i<(Math.sqrt(num) + 1); i=i+2) {
+        for (let i=3; i<(Math.sqrt(num) + 1); i=i+2)
             while (num % i === 0) {
                 primeList.push(i);
                 num /= i;
             }
-        }
 
         if (num > 2)
             primeList.push(num);
 
         return primeList;
+    },
+    isPalindrome: (num) => {
+        /*
+         * Return if a given number is palindrome
+         *
+         * @param {number} num - The number you want to check
+         * @return {boolean}
+         */
+
+        num = num.toString().split('');
+
+        for (let i=0; i<Math.floor(num.length / 2); i++)
+            if (num[i] !== num[num.length - 1 - i])
+                return false;
+
+        return true;
     }
 }
