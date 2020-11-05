@@ -72,5 +72,15 @@ module.exports = {
                 return false;
 
         return true;
+    },
+    getProduct: (...nums) => {
+        /*
+         * Return the product of all the numbers in given in input
+         *
+         * @param {...number} nums - All the numbers you want to multiply
+         * @return {number} The result of the multiplication
+         */
+
+        return nums.reduce((accumulator, current) => accumulator * current)
     }
 }
