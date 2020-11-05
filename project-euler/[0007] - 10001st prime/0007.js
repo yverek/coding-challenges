@@ -10,27 +10,14 @@
  * @solution: 104743
  */
 
+const utils = require('../../utils');
+
 const TARGET = 10001;
 let i = 0;
 let number = 2;
 
-function isPrime(num) {
-    /*
-     * Return if a given number is prime
-     *
-     * @param {number} num - The number you want to check
-     * @return {boolean}
-     */
-
-    for(let i = 2; i <= Math.sqrt(num); i++)
-        if(num % i === 0)
-            return false;
-
-    return true;
-}
-
 while (i !== TARGET) {
-    if (isPrime(number))
+    if (utils.isPrime(number))
         i++;
 
     if (i === TARGET)
