@@ -92,5 +92,33 @@ module.exports = {
          */
 
         return nums.reduce((accumulator, current) => accumulator + current);
+    },
+    getCollatzSequence: (num) => {
+        /*
+         * Return the Collatz sequence starting from a given number
+         *
+         * @param {number} num - The number you want to use to generate the sequence
+         * @return {number[]} The Collatz sequence
+         */
+
+        const transformEvenNumber = (n) => n/2;
+        const transformOddNumber  = (n) => (3 * n) + 1;
+
+        let sequence = [];
+        let current = num;
+
+        if (num === 1)
+            sequence.push(1);
+
+        while (current !== 1) {
+            if(current % 2 === 0)
+                current = transformEvenNumber(current);
+            else
+                current = transformOddNumber(current);
+
+            sequence.push(current);
+        }
+
+        return sequence;
     }
 }
