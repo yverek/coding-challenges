@@ -120,5 +120,29 @@ module.exports = {
         }
 
         return sequence;
+    },
+    factorial: (num) => {
+        /*
+         * Return the factorial of the given value
+         *
+         * @param {number} num - Value to compute on
+         * @return {number}
+         */
+
+        if (num === 0 || num === 1)
+            return 1;
+
+        return module.exports.getProduct(...[...Array(num + 1).keys()].slice(1));
+    },
+    binomialCoefficient: (n, k) => {
+        /*
+         * Return the binomial coefficient
+         *
+         * @param {number} n - The total set of possibilities
+         * @param {number} k - The number of combinations we're interested in
+         * @return {number}
+         */
+
+        return module.exports.factorial(n) / (module.exports.factorial(k) * module.exports.factorial(n - k));
     }
 }
