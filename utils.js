@@ -125,7 +125,7 @@ module.exports = {
         /*
          * Return the factorial of the given value
          *
-         * @param {BigInt} num - Value to compute on
+         * @param {number} num - Value to compute on
          * @return {number}
          */
 
