@@ -1,2 +1,2 @@
-# coding-challenges
-A repository containing all my completed coding challenges from coding challenge websites.
+# Coding Challenges
+A repository containing all my completed coding challenges.
