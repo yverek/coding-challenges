@@ -121,7 +121,7 @@ module.exports = {
 
         return sequence;
     },
-    factorial: (num) => {
+    factorial: (_num) => {
         /*
          * Return the factorial of the given value
          *
@@ -129,6 +129,7 @@ module.exports = {
          * @return {number}
          */
 
+        let num = BigInt(_num);
         let acc = 1n;
 
         while (num > 1n)
