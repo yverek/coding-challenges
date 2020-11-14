@@ -125,14 +125,16 @@ module.exports = {
         /*
          * Return the factorial of the given value
          *
-         * @param {number} num - Value to compute on
+         * @param {BigInt} num - Value to compute on
          * @return {number}
          */
 
-        if (num === 0 || num === 1)
-            return 1;
+        let acc = 1n;
 
-        return module.exports.getProduct(...[...Array(num + 1).keys()].slice(1));
+        while (num > 1n)
+            acc = acc * --num;
+
+        return acc;
     },
     binomialCoefficient: (n, k) => {
         /*
