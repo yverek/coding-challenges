@@ -17,14 +17,14 @@
  * @solution: 25164150
  */
 
-let sumOfTheSquares = 0;
-let squareOfTheSum = 0;
+export default function problem0006() {
+    let sumOfTheSquares = 0, squareOfTheSum = 0, i;
 
-for (let i=1; i<=100; i++) {
-    sumOfTheSquares += Math.pow(i, 2);
-    squareOfTheSum += i;
+    for (i=1; i<=100; i++) {
+        sumOfTheSquares += Math.pow(i, 2);
+        squareOfTheSum += i;
+    }
+    squareOfTheSum = Math.pow(squareOfTheSum, 2);
+
+    return squareOfTheSum - sumOfTheSquares;
 }
-
-squareOfTheSum = Math.pow(squareOfTheSum, 2);
-
-console.log(`The solution is: ${squareOfTheSum - sumOfTheSquares}`);
