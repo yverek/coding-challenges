@@ -34,7 +34,7 @@
  * @solution: 70600674
  */
 
-import { getProduct } from "../../utils.js";
+import { getProduct } from "../../../utils.js";
 
 export default function problem0011() {
     let i, j, product = 0;

@@ -11,7 +11,7 @@
  * @solution: 142913828922
  */
 
-import { isPrime } from "../../utils.js";
+import { isPrime } from "../../../utils.js";
 
 export default function problem0010() {
     const TARGET = 2000000;

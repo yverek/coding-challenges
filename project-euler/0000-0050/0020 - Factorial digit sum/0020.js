@@ -14,7 +14,7 @@
  * @solution: 648
  */
 
-import { factorial, getSum } from "../../utils.js";
+import { factorial, getSum } from "../../../utils.js";
 
 export default function problem0020() {
     let solution =

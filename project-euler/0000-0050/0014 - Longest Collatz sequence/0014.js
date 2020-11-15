@@ -22,7 +22,7 @@
  * @solution: 837799
  */
 
-import { getCollatzSequence } from "../../utils.js";
+import { getCollatzSequence } from "../../../utils.js";
 
 export default function problem0014() {
     const TARGET = 1000000;

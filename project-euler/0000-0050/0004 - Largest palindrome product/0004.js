@@ -12,7 +12,7 @@
  * @solution: 906609
  */
 
-import { findMaxPalindromeProduct } from "../../utils.js";
+import { findMaxPalindromeProduct } from "../../../utils.js";
 
 export default function problem0004() {
     const MIN = 100;
