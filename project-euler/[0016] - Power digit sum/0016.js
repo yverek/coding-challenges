@@ -11,29 +11,29 @@
  * @solution: 1366
  */
 
-const utils = require('../../utils');
+import { getSum } from "../../utils.js";
 
-let number = [1], sum;
+export default function problem0016() {
+    const TARGET = 1000;
+    let i, j, number = [1];
 
-for(let i=0; i<1000; i++) {
-    let overflow = 0, count = number.length + 1;
+    for (i = 0; i < TARGET; i++) {
+        let overflow = 0, count = number.length + 1;
 
-    for(let j=0; j<count; j++) {
-        let digit = number[j] || 0;
+        for (j = 0; j < count; j++) {
+            let digit = number[j] || 0;
 
-        digit = 2 * digit + overflow;
+            digit = 2 * digit + overflow;
 
-        if(digit > 9) {
-            digit -= 10;
-            overflow = 1;
+            if (digit > 9) {
+                digit -= 10;
+                overflow = 1;
+            } else
+                overflow = 0;
+
+            number[j] = digit;
         }
-        else
-            overflow = 0;
-
-        number[j] = digit;
     }
+
+    return getSum(...number);
 }
-
-sum = utils.getSum(...number);
-
-console.log(`The solution is: ${sum}`);
