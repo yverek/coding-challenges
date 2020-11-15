@@ -15,17 +15,19 @@
  * @solution: 31875000
  */
 
-const utils = require('../../utils');
+import { getProduct } from "../../utils.js";
 
-let product;
+export default function problem0009() {
+    let a, b, product;
 
-for (let a=0; a<1000; a++) {
-    for (let b=1; b<1000; b++) {
-        const c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+    for (a = 0; a < 1000; a++) {
+        for (b = 1; b < 1000; b++) {
+            const c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
 
-        if ((a + b + c) === 1000)
-            product = utils.getProduct(a, b, c);
+            if ((a + b + c) === 1000)
+                product = getProduct(a, b, c);
+        }
     }
-}
 
-console.log(`The solution is: ${product}`);
+    return product;
+}
