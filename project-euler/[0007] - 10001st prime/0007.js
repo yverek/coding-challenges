@@ -10,20 +10,21 @@
  * @solution: 104743
  */
 
-const utils = require('../../utils');
+import { isPrime } from "../../utils.js";
 
-const TARGET = 10001;
-let i = 0;
-let number = 2;
+export default function problem0007() {
+    const TARGET = 10001;
+    let number = 2, i = 0;
 
-while (i !== TARGET) {
-    if (utils.isPrime(number))
-        i++;
+    while (i !== TARGET) {
+        if (isPrime(number))
+            i++;
 
-    if (i === TARGET)
-        break;
+        if (i === TARGET)
+            break;
 
-    number++;
+        number++;
+    }
+
+    return number;
 }
-
-console.log(`The solution is: ${number}`);
