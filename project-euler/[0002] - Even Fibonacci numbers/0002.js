@@ -15,17 +15,18 @@
  * @solution: 4613732
  */
 
-const utils = require('../../utils');
+import { fibonacci } from '../../utils.js';
 
-const fibonacciSequence = utils.fibonacci();
-let result, sum = 0;
+export default function problem0002() {
+    const fibonacciSequence = fibonacci();
+    let result, sum = 0;
 
-do {
-    result = fibonacciSequence.next();
+    do {
+        result = fibonacciSequence.next().value;
 
-    if (result % 2 === 0)
-        sum += result;
-} while (result < 4000000);
+        if (result % 2 === 0)
+            sum += result;
+    } while (result < 4000000);
 
-
-console.log(`The solution is: ${sum}`);
+    return sum;
+}
