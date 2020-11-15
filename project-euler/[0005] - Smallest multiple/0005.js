@@ -10,19 +10,16 @@
  * @solution: 232792560
  */
 
-let num = 2520;
+export default function problem0005() {
+    let i, num = 2520;
 
-while (true) {
-    let i;
-
-    for (i = 2; i < 20; i++)
-        if (num % i !== 0)
-            break;
-
-    if (i < 20)
+    do {
         num++;
-    else
-        break;
-}
 
-console.log(`The solution is: ${num}`);
+        for (i = 2; i < 20; i++)
+            if (num % i !== 0)
+                break;
+    } while (i < 20);
+
+    return num;
+}
