@@ -10,10 +10,10 @@
  * @solution: 6857
  */
 
-const utils = require('../../utils');
+import { primeFactors } from '../../utils.js';
 
-const TARGET = 600851475143;
+export default function problem0003() {
+    const TARGET = 600851475143;
 
-const maxPrimeFactor = Math.max(...utils.primeFactors(TARGET));
-
-console.log(`The solution is: ${maxPrimeFactor}`);
+    return Math.max(...primeFactors(TARGET));
+}
