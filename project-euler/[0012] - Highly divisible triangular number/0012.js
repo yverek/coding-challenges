@@ -26,41 +26,43 @@
  * @solution: 76576500
  */
 
-const utils = require('../../utils');
+import { isPrime } from "../../utils.js";
 
-const primeNumbers = [];
+export default function problem0012() {
+    const TARGET = 500;
+    const primeNumbers = [];
 
-// get all prime numbers under 500
-for (let i=1; i<=500; i++)
-    if (utils.isPrime(i))
-        primeNumbers.push(i);
+    for (let i = 1; i <= TARGET; i++)
+        if (isPrime(i))
+            primeNumbers.push(i);
 
-let previousTriangularNumber = 1, i = 2, triangularNumber = 0;
+    let previousTriangularNumber = 1, i = 2, triangularNumber = 0;
 
-while (true) {
-    triangularNumber = previousTriangularNumber + i++;
-    const limit = Math.sqrt(triangularNumber);
+    while (true) {
+        triangularNumber = previousTriangularNumber + i++;
+        const limit = Math.sqrt(triangularNumber);
 
-    let numberOfFactors = 1;
-    let current = triangularNumber;
+        let numberOfFactors = 1;
+        let current = triangularNumber;
 
-    previousTriangularNumber = triangularNumber;
+        previousTriangularNumber = triangularNumber;
 
-    for(let prime of primeNumbers) {
-        if(prime > limit)
-            break;
+        for (let prime of primeNumbers) {
+            if (prime > limit)
+                break;
 
-        let powerOfPrime = 0;
-        while(current % prime === 0 && prime !== 1) {
-            current /= prime;
-            powerOfPrime++;
+            let powerOfPrime = 0;
+            while (current % prime === 0 && prime !== 1) {
+                current /= prime;
+                powerOfPrime++;
+            }
+
+            numberOfFactors *= (powerOfPrime + 1);
         }
 
-        numberOfFactors *= (powerOfPrime + 1);
+        if (numberOfFactors >= 500)
+            break;
     }
 
-    if(numberOfFactors >= 500)
-        break;
+    return triangularNumber;
 }
-
-console.log(`The solution is: ${triangularNumber}`);
