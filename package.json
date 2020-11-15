@@ -5,7 +5,9 @@
   "main": "script.js",
   "type": "module",
   "scripts": {
-    "test": "jest"
+    "test-all": "jest",
+    "test-project-euler": "jest --testPathPattern=project-euler",
+    "test-project-euler-0000-0050": "jest --testPathPattern=project-euler/0000-0050"
   },
   "repository": {
     "type": "git",
