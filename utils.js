@@ -41,6 +41,36 @@ export function *fibonacci() {
     }
 }
 
+export function findMaxPalindromeProduct(min, max) {
+    /*
+     * Return the max palindrome product of the numbers in a given range
+     *
+     * @param {number} min - The min value of the range
+     * @param {number} max - The max value of the range
+     * @return {number}
+     */
+    let maxProduct = 0;
+    let first = max;
+    let product;
+
+    while (first >= min) {
+        let second = max;
+
+        while (second >= min) {
+            product = first * second;
+
+            if (isPalindrome(product) && (product > maxProduct))
+                maxProduct = product;
+
+            second--;
+        }
+
+        first--;
+    }
+
+    return maxProduct;
+}
+
 export function getCollatzSequence(num) {
     /*
      * Return the Collatz sequence starting from a given number
