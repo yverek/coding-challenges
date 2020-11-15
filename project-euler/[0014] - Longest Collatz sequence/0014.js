@@ -22,18 +22,20 @@
  * @solution: 837799
  */
 
-const utils = require('../../utils');
+import { getCollatzSequence } from "../../utils.js";
 
-let max = 0;
-let solution = 0;
+export default function problem0014() {
+    const TARGET = 1000000;
+    let i, sequence, max = 0, solution = 0;
 
-for (let i=1000000; i>1; i--) {
-    let sequence = utils.getCollatzSequence(i);
+    for (i = TARGET; i > 1; i--) {
+        sequence = getCollatzSequence(i);
 
-    if (sequence.length > max) {
-        max = sequence.length
-        solution = i;
+        if (sequence.length > max) {
+            max = sequence.length
+            solution = i;
+        }
     }
-}
 
-console.log(`The solution is: ${solution}`);
+    return solution;
+}
