@@ -11,12 +11,15 @@
  * @solution: 142913828922
  */
 
-const utils = require('../../utils');
+import { isPrime } from "../../utils.js";
 
-let sum = 0;
+export default function problem0010() {
+    const TARGET = 2000000;
+    let i, sum = 0;
 
-for (let i=0; i<2000000; i++)
-    if (utils.isPrime(i))
-        sum += i;
+    for (i=0; i<TARGET; i++)
+        if (isPrime(i))
+            sum += i;
 
-console.log(`The solution is: ${sum}`);
+    return sum;
+}
