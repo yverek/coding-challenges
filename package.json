@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A repository containing all my completed coding challenges.",
   "main": "script.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
