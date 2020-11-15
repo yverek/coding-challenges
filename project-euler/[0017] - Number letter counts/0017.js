@@ -17,15 +17,14 @@
  * @solution: 21124
  */
 
-let lenHundred = 7;
-let lenThousand = 8;
-let lenPlaceOnes = [0, 3, 3, 5, 4, 4, 3, 5, 5, 4];
-let lenPlaceTens = [0, 3, 6, 6, 5, 5, 5, 7, 6, 6];
+export default function problem0017() {
+    const TARGET = 1000;
+    const lenHundred = 7, lenThousand = 8;
+    const lenPlaceOnes = [0, 3, 3, 5, 4, 4, 3, 5, 5, 4];
+    const lenPlaceTens = [0, 3, 6, 6, 5, 5, 5, 7, 6, 6];
+    let i, sum = 0;
 
-function sumTo(num) {
-    let sum = 0;
-
-    for (let i = 1; i <= num; i++) {
+    for (i = 1; i <= TARGET; i++) {
         let placeOnes = i % 10;
         let placeTens = Math.floor(i / 10) % 10;
         let placeHundreds = Math.floor(i / 100) % 10;
@@ -60,13 +59,11 @@ function sumTo(num) {
             }
         }
 
-        // If the value is above one hundred, and the number is not an exact hundred, add
-        // 3 for the "and"
+        // If the value is above one hundred, and the number is not an exact hundred
+        // add 3 for the "and"
         if (i > 100 && i % 100 !== 0)
             sum += 3;
     }
 
     return sum;
 }
-
-console.log(`The solution is: ${sumTo(1000)}`);
