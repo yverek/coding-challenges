@@ -13,6 +13,10 @@
  * @solution: 137846528820
  */
 
-const utils = require('../../utils');
+import { binomialCoefficient } from "../../utils.js";
 
-console.log(`The solution is: ${utils.binomialCoefficient(40,20)}`);
+export default function problem0015() {
+    const n = 40, k = 20;
+
+    return binomialCoefficient(n, k);
+}
