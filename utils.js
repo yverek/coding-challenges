@@ -6,7 +6,7 @@ export function binomialCoefficient(n, k) {
      * @param {number} k - The number of combinations we're interested in
      * @return {number}
      */
-    return factorial(n) / (factorial(k) * factorial(n - k));
+    return Number(factorial(n)) / (Number(factorial(k)) * Number(factorial(n - k)));
 }
 
 export function factorial(number) {
@@ -16,14 +16,12 @@ export function factorial(number) {
      * @param {number} num - Value to compute on
      * @return {number}
      */
+    let i, result = 1n;
 
-    let num = BigInt(number);
-    let acc = 1n;
+    for (i = 2n; i <= number; i++)
+        result *= i;
 
-    while (num > 1n)
-        acc = acc * --num;
-
-    return acc;
+    return result;
 }
 
 export function *fibonacci() {
