@@ -14,13 +14,15 @@
  * @solution: 648
  */
 
-const utils = require('../../utils');
+import { factorial, getSum } from "../../utils.js";
 
-let solution =
-    utils.factorial(100).toLocaleString()
-        .slice(0, -1) // remove the 'n' of BigInt at the end
-        .replace(/[0.]/g, '') // remove 0s and dots
-        .split('') // create an array with every digits
-        .map(x => +x) // convert every digits from string to number using '+' sign
+export default function problem0020() {
+    let solution =
+        factorial(100).toLocaleString()
+            .slice(0, -1) // remove the 'n' of BigInt at the end
+            .replace(/[0.]/g, '') // remove 0s and dots
+            .split('') // create an array with every digits
+            .map(x => +x) // convert every digits from string to number using '+' sign
 
-console.log(`The solution is: ${utils.getSum(...solution)}`);
+    return getSum(...solution);
+}
