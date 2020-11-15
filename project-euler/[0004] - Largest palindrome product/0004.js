@@ -12,40 +12,11 @@
  * @solution: 906609
  */
 
-const utils = require('../../utils');
+import { findMaxPalindromeProduct } from "../../utils.js";
 
-const MIN = 100;
-const MAX = 999;
+export default function problem0004() {
+    const MIN = 100;
+    const MAX = 999;
 
-function findMaxPalindromeProduct(min, max) {
-    /*
-     * Return the max palindrome product of the numbers in a given range
-     *
-     * @param {number} min - The min value of the range
-     * @param {number} max - The max value of the range
-     * @return {number}
-     */
-
-    let maxProduct = 0;
-    let first = max;
-    let product;
-
-    while (first >= min) {
-        let second = max;
-
-        while (second >= min) {
-            product = first * second;
-
-            if (utils.isPalindrome(product) && (product > maxProduct))
-                maxProduct = product;
-
-            second--;
-        }
-
-        first--;
-    }
-
-    return maxProduct;
+    return findMaxPalindromeProduct(MIN, MAX);
 }
-
-console.log(`The solution is: ${findMaxPalindromeProduct(MIN, MAX)}`);
