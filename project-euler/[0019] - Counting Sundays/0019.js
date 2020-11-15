@@ -20,20 +20,21 @@
  * @solution: 171
  */
 
-let daysInAMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-let daysCount = 365 + 1;
-let sundays = 0;
+export default function problem0019() {
+    const daysInAMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let month, year, sundays = 0, daysCount = 365 + 1;
 
-for (let year=1901; year<=2000; year++)
-    for (let month=0; month<12; month++) {
-        if (daysCount % 7 === 0)
-            sundays++;
+    for (year = 1901; year <= 2000; year++)
+        for (month = 0; month < 12; month++) {
+            if (daysCount % 7 === 0)
+                sundays++;
 
-        daysCount += daysInAMonth[month];
+            daysCount += daysInAMonth[month];
 
-        if (month === 1 && year % 4 === 0)
-            if (year % 100 !== 0 || year % 400 === 0)
-                daysCount += 1;
-    }
+            if (month === 1 && year % 4 === 0)
+                if (year % 100 !== 0 || year % 400 === 0)
+                    daysCount += 1;
+        }
 
-console.log(`The solution is: ${sundays}`);
+    return sundays;
+}
