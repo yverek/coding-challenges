@@ -20,3 +20,5 @@ export default function problem0015() {
 
     return binomialCoefficient(n, k);
 }
+
+problem0015();

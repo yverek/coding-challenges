@@ -14,7 +14,7 @@ import { isPrime } from "../../utils.js";
 
 export default function problem0007() {
     const TARGET = 10001;
-    let number = 2, i = 0;
+    let i = 0, number = 2;
 
     while (i !== TARGET) {
         if (isPrime(number))

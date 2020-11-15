@@ -12,9 +12,10 @@
  */
 
 export default function problem0001() {
-    let sum = 0;
+    const TARGET = 1000;
+    let i, sum = 0;
 
-    for (let i=0; i<1000; i++)
+    for (i=0; i<TARGET; i++)
         if (i % 3 === 0 || i % 5 === 0)
             sum += i;
 

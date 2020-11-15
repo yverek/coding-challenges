@@ -18,7 +18,7 @@
  */
 
 export default function problem0006() {
-    let sumOfTheSquares = 0, squareOfTheSum = 0, i;
+    let i, sumOfTheSquares = 0, squareOfTheSum = 0;
 
     for (i=1; i<=100; i++) {
         sumOfTheSquares += Math.pow(i, 2);

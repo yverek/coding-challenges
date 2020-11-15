@@ -18,6 +18,7 @@
 import { fibonacci } from '../../utils.js';
 
 export default function problem0002() {
+    const TARGET = 4000000;
     const fibonacciSequence = fibonacci();
     let result, sum = 0;
 
@@ -26,7 +27,7 @@ export default function problem0002() {
 
         if (result % 2 === 0)
             sum += result;
-    } while (result < 4000000);
+    } while (result < TARGET);
 
     return sum;
 }

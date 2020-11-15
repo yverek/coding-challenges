@@ -218,5 +218,5 @@ export default function problem0013() {
 
     const sum = getSum(...data.map(str => +str.slice(0, 11)));
 
-    return sum.toString().slice(0, 10);
+    return +sum.toString().slice(0, 10);
 }
