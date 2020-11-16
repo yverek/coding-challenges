@@ -18,16 +18,22 @@ export function binomialCoefficient(n, k) {
     return Number(factorial(n)) / (Number(factorial(k)) * Number(factorial(n - k)));
 }
 
-export function factorial(number) {
+export function factorial(n) {
     /*
      * Return the factorial of the given value
      *
      * @param {number} num - Value to compute on
-     * @return {number}
+     * @return {BigInt}
      */
+    if (typeof n !== "number")
+        throw new Error("Please n must must be a number");
+
+    if (n < 0)
+        throw new Error("Please n must be a positive integer");
+
     let i, result = 1n;
 
-    for (i = 2n; i <= number; i++)
+    for (i = 2n; i <= n; i++)
         result *= i;
 
     return result;

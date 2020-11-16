@@ -1,5 +1,5 @@
 import { describe, test } from "@jest/globals";
-import { binomialCoefficient } from './utils.js';
+import { binomialCoefficient, factorial } from './utils.js';
 
 describe('# binomialCoefficient() #', () => {
     test('binomialCoefficient(\'Rome\', \'Paris\') throws error', () => {
@@ -16,5 +16,23 @@ describe('# binomialCoefficient() #', () => {
     });
     test('binomialCoefficient(10, 5) throws error', () => {
         expect(binomialCoefficient(10, 5)).toBe(252);
+    });
+});
+
+describe('# factorial() #', () => {
+    test('factorial(\'Rome\') throws error', () => {
+        expect(() => factorial('Rome')).toThrow('Please n must must be a number');
+    });
+    test('factorial(-1) throws error', () => {
+        expect(() => factorial(-1)).toThrow('Please n must be a positive integer');
+    });
+    test('factorial(0) should return 1', () => {
+        expect(factorial(0)).toBe(1n);
+    });
+    test('factorial(1) should return 1', () => {
+        expect(factorial(1)).toBe(1n);
+    });
+    test('factorial(6) should return 720', () => {
+        expect(factorial(6)).toBe(720n);
     });
 });
