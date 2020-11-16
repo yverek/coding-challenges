@@ -6,6 +6,15 @@ export function binomialCoefficient(n, k) {
      * @param {number} k - The number of combinations we're interested in
      * @return {number}
      */
+    if (typeof n !== "number" || typeof k !== "number")
+        throw new Error("Please n and k must be numbers");
+
+    if (k > n)
+        throw new Error("Please n must be >= k");
+
+    if (n < 0 || k < 0)
+        throw new Error("Please n and k must be positive integer");
+
     return Number(factorial(n)) / (Number(factorial(k)) * Number(factorial(n - k)));
 }
 
