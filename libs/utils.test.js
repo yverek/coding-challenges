@@ -1,14 +1,21 @@
 import { describe, test } from "@jest/globals";
-import {binomialCoefficient, factorial, fibonacci, findMaxPalindromeProduct, getCollatzSequence} from './utils.js';
+import {
+    binomialCoefficient,
+    factorial,
+    fibonacci,
+    findMaxPalindromeProduct,
+    getCollatzSequence,
+    getProduct
+} from './utils.js';
 
-describe('# binomialCoefficient() #', () => {
-    test('binomialCoefficient(\'Rome\', \'Paris\') throws error', () => {
+describe('### binomialCoefficient() ###', () => {
+    test(`binomialCoefficient('Rome', 'Paris') throws 'Please n and k must be numbers'`, () => {
         expect(() => binomialCoefficient('Rome', 'Paris')).toThrow('Please n and k must be numbers');
     });
-    test('binomialCoefficient(5, 10) throws error', () => {
+    test(`binomialCoefficient(5, 10) throws 'Please n must be >= k'`, () => {
         expect(() => binomialCoefficient(5, 10)).toThrow('Please n must be >= k');
     });
-    test('binomialCoefficient(-1, -1) throws error', () => {
+    test(`binomialCoefficient(-1, -1) throws 'Please n and k must be positive integer'`, () => {
         expect(() => binomialCoefficient(-1, -1)).toThrow('Please n and k must be positive integer');
     });
     test('binomialCoefficient(4, 2) returns 6', () => {
@@ -19,11 +26,11 @@ describe('# binomialCoefficient() #', () => {
     });
 });
 
-describe('# factorial() #', () => {
-    test('factorial(\'Rome\') throws error', () => {
+describe('### factorial() ###', () => {
+    test(`factorial('Rome') throws 'Please num must must be a number'`, () => {
         expect(() => factorial('Rome')).toThrow('Please num must must be a number');
     });
-    test('factorial(-1) throws error', () => {
+    test(`factorial(-1) throws 'Please num must be a positive integer'`, () => {
         expect(() => factorial(-1)).toThrow('Please num must be a positive integer');
     });
     test('factorial(0) returns 1', () => {
@@ -37,7 +44,7 @@ describe('# factorial() #', () => {
     });
 });
 
-describe('# fibonacci() #', () => {
+describe('### fibonacci() ###', () => {
     test('fibonacci().next().value called 10 times in a row' +
         ' returns [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]', () => {
         const fibonacciSequence = fibonacci();
@@ -56,17 +63,17 @@ describe('# fibonacci() #', () => {
     });
 });
 
-describe('# findMaxPalindromeProduct() #', () => {
-    test('findMaxPalindromeProduct(\'Rome\', \'Paris\') throws error', () => {
+describe('### findMaxPalindromeProduct() ###', () => {
+    test(`findMaxPalindromeProduct('Rome', 'Paris') throws 'Please min and max must be numbers'`, () => {
         expect(() => findMaxPalindromeProduct('Rome', 'Paris')).toThrow('Please min and max must be numbers');
     });
-    test('findMaxPalindromeProduct(10, 5) throws error', () => {
+    test(`findMaxPalindromeProduct(10, 5) throws 'Please min must be >= max'`, () => {
         expect(() => findMaxPalindromeProduct(10, 5)).toThrow('Please min must be >= max');
     });
-    test('findMaxPalindromeProduct(-1, -1) throws error', () => {
+    test(`findMaxPalindromeProduct(-1, -1) throws 'Please min and max must be positive integer'`, () => {
         expect(() => findMaxPalindromeProduct(-1, -1)).toThrow('Please min and max must be positive integer');
     });
-    test('findMaxPalindromeProduct(0, 0) throws error', () => {
+    test(`findMaxPalindromeProduct(0, 0) throws 'Please min and max must be positive integer'`, () => {
         expect(() => findMaxPalindromeProduct(0, 0)).toThrow('Please min and max must be positive integer');
     });
     test('findMaxPalindromeProduct(10, 99) returns 9009', () => {
@@ -77,14 +84,14 @@ describe('# findMaxPalindromeProduct() #', () => {
     });
 });
 
-describe('# getCollatzSequence() #', () => {
-    test('getCollatzSequence(\'Rome\') throws error', () => {
+describe('### getCollatzSequence() ###', () => {
+    test(`getCollatzSequence('Rome') throws 'Please num must must be a number'`, () => {
         expect(() => getCollatzSequence('Rome')).toThrow('Please num must must be a number');
     });
-    test('getCollatzSequence(-1) throws error', () => {
+    test(`getCollatzSequence(-1) throws 'Please num must be a positive integer'`, () => {
         expect(() => getCollatzSequence(-1)).toThrow('Please num must be a positive integer');
     });
-    test('getCollatzSequence(0) throws error', () => {
+    test(`getCollatzSequence(0) throws 'Please num must be a positive integer'`, () => {
         expect(() => getCollatzSequence(0)).toThrow('Please num must be a positive integer');
     });
     test('getCollatzSequence(1) returns [1]', () => {
@@ -98,5 +105,29 @@ describe('# getCollatzSequence() #', () => {
     });
     test('getCollatzSequence(20) returns [10, 5, 16, 8, 4, 2, 1]', () => {
         expect(getCollatzSequence(20)).toEqual(expect.arrayContaining([10, 5, 16, 8, 4, 2, 1]));
+    });
+});
+
+describe('### getProduct() ###', () => {
+    test(`getProduct('Rome') throws 'Please every parameter must be a number'`, () => {
+        expect(() => getProduct('Rome')).toThrow('Please every parameter must be a number');
+    });
+    test(`getProduct(0, 'Rome') throws 'Please every parameter must be a number'`, () => {
+        expect(() => getProduct(0, 'Rome')).toThrow('Please every parameter must be a number');
+    });
+    test(`getProduct(-1) throws 'Please nums length must be >= 2'`, () => {
+        expect(() => getProduct(-1)).toThrow('Please nums length must be >= 2');
+    });
+    test('getProduct(1, 2) returns 2', () => {
+        expect(getProduct(1, 2)).toBe(2);
+    });
+    test('getProduct(5, 5, 5) returns 125', () => {
+        expect(getProduct(5, 5, 5)).toBe(125);
+    });
+    test('getProduct(2, 2, 2, 2, 2) returns 32', () => {
+        expect(getProduct(2, 2, 2, 2, 2)).toBe(32);
+    });
+    test('getProduct(4, 9, 16, 125, 2) returns 144000', () => {
+        expect(getProduct(4, 9, 16, 125, 2)).toBe(144000);
     });
 });

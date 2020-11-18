@@ -133,6 +133,14 @@ export function getProduct(...nums) {
      * @param {...number} nums - All the numbers you want to multiply
      * @return {number}
      */
+    nums.forEach(n => {
+        if (typeof n !== "number")
+            throw new Error("Please every parameter must be a number")
+    })
+
+    if (nums.length < 2)
+        throw new Error("Please nums length must be >= 2");
+
     return nums.reduce((accumulator, current) => accumulator * current);
 }
 
