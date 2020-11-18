@@ -206,8 +206,14 @@ export function primeFactors(num) {
      * Return an array with all prime factors of a given number
      *
      * @param {number} num - The number you want to calculate all prime factors
-     * @return {array}
+     * @return {number[]}
      */
+    if (typeof num !== "number")
+        throw new Error("Please num must must be a number");
+
+    if (num <= 0)
+        throw new Error("Please num must be a positive integer");
+
     const primeList = [];
 
     while (num % 2 === 0) {

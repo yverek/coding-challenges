@@ -5,7 +5,7 @@ import {
     fibonacci,
     findMaxPalindromeProduct,
     getCollatzSequence,
-    getProduct, getSum, isPalindrome, isPrime
+    getProduct, getSum, isPalindrome, isPrime, primeFactors
 } from './utils.js';
 
 describe('### binomialCoefficient() ###', () => {
@@ -201,5 +201,29 @@ describe('### isPrime() ###', () => {
     });
     test(`isPrime(100) returns false`, () => {
         expect(isPrime(100  )).toBeFalsy();
+    });
+});
+
+describe('### primeFactors() ###', () => {
+    test(`primeFactors('Rome') throws 'Please num must must be a number'`, () => {
+        expect(() => primeFactors('Rome')).toThrow('Please num must must be a number');
+    });
+    test(`primeFactors(-1) throws 'Please num must be a positive integer'`, () => {
+        expect(() => primeFactors(-1)).toThrow('Please num must be a positive integer');
+    });
+    test(`primeFactors(0) throws 'Please num must be a positive integer'`, () => {
+        expect(() => primeFactors(0)).toThrow('Please num must be a positive integer');
+    });
+    test(`primeFactors(1) returns []`, () => {
+        expect(primeFactors(1)).toEqual(expect.arrayContaining([]));
+    });
+    test(`primeFactors(20) returns [2, 2, 5]`, () => {
+        expect(primeFactors(20)).toEqual(expect.arrayContaining([2, 2, 5]));
+    });
+    test(`primeFactors(87) returns [3, 29]`, () => {
+        expect(primeFactors(87)).toEqual(expect.arrayContaining([3, 29]));
+    });
+    test(`primeFactors(228) returns [2, 2, 3, 19]`, () => {
+        expect(primeFactors(228  )).toEqual(expect.arrayContaining([2, 2, 3, 19]));
     });
 });
