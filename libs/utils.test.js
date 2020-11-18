@@ -1,5 +1,5 @@
 import { describe, test } from "@jest/globals";
-import { binomialCoefficient, factorial } from './utils.js';
+import { binomialCoefficient, factorial, fibonacci } from './utils.js';
 
 describe('# binomialCoefficient() #', () => {
     test('binomialCoefficient(\'Rome\', \'Paris\') throws error', () => {
@@ -11,10 +11,10 @@ describe('# binomialCoefficient() #', () => {
     test('binomialCoefficient(-1, -1) throws error', () => {
         expect(() => binomialCoefficient(-1, -1)).toThrow('Please n and k must be positive integer');
     });
-    test('binomialCoefficient(4, 2) should return ', () => {
+    test('binomialCoefficient(4, 2) returns 6', () => {
         expect(binomialCoefficient(4, 2)).toBe(6);
     });
-    test('binomialCoefficient(10, 5) throws error', () => {
+    test('binomialCoefficient(10, 5) returns 252', () => {
         expect(binomialCoefficient(10, 5)).toBe(252);
     });
 });
@@ -26,13 +26,32 @@ describe('# factorial() #', () => {
     test('factorial(-1) throws error', () => {
         expect(() => factorial(-1)).toThrow('Please n must be a positive integer');
     });
-    test('factorial(0) should return 1', () => {
+    test('factorial(0) returns 1', () => {
         expect(factorial(0)).toBe(1n);
     });
-    test('factorial(1) should return 1', () => {
+    test('factorial(1) returns 1', () => {
         expect(factorial(1)).toBe(1n);
     });
-    test('factorial(6) should return 720', () => {
+    test('factorial(6) returns 720', () => {
         expect(factorial(6)).toBe(720n);
+    });
+});
+
+describe('# fibonacci() #', () => {
+    test('fibonacci().next().value called 10 times in a row' +
+        ' returns [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]', () => {
+        const fibonacciSequence = fibonacci();
+
+        expect(fibonacciSequence.next().value).toBe(0);
+        expect(fibonacciSequence.next().value).toBe(1);
+        expect(fibonacciSequence.next().value).toBe(1);
+        expect(fibonacciSequence.next().value).toBe(2);
+        expect(fibonacciSequence.next().value).toBe(3);
+        expect(fibonacciSequence.next().value).toBe(5);
+        expect(fibonacciSequence.next().value).toBe(8);
+        expect(fibonacciSequence.next().value).toBe(13);
+        expect(fibonacciSequence.next().value).toBe(21);
+        expect(fibonacciSequence.next().value).toBe(34);
+        expect(fibonacciSequence.next().value).toBe(55);
     });
 });
