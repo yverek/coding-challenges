@@ -5,7 +5,7 @@ import {
     fibonacci,
     findMaxPalindromeProduct,
     getCollatzSequence,
-    getProduct, getSum, isPalindrome
+    getProduct, getSum, isPalindrome, isPrime
 } from './utils.js';
 
 describe('### binomialCoefficient() ###', () => {
@@ -177,5 +177,29 @@ describe('### isPalindrome() ###', () => {
     });
     test(`isPalindrome(String(997)) returns false`, () => {
         expect(isPalindrome(String(997))).toBeFalsy();
+    });
+});
+
+describe('### isPrime() ###', () => {
+    test(`isPrime('Rome') throws 'Please num must must be a number'`, () => {
+        expect(() => isPrime('Rome')).toThrow('Please num must must be a number');
+    });
+    test(`isPrime(-1) throws 'Please num must be a positive integer'`, () => {
+        expect(() => isPrime(-1)).toThrow('Please num must be a positive integer');
+    });
+    test(`isPrime(0) throws 'Please num must be a positive integer'`, () => {
+        expect(() => isPrime(0)).toThrow('Please num must be a positive integer');
+    });
+    test(`isPrime(1) returns true`, () => {
+        expect(isPrime(1)).toBeFalsy();
+    });
+    test(`isPrime(20) returns false`, () => {
+        expect(isPrime(20)).toBeFalsy();
+    });
+    test(`isPrime(13) returns true`, () => {
+        expect(isPrime(13)).toBeTruthy();
+    });
+    test(`isPrime(100) returns false`, () => {
+        expect(isPrime(100  )).toBeFalsy();
     });
 });

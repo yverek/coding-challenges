@@ -188,6 +188,12 @@ export function isPrime(num) {
      * @param {number} num - The number you want to check
      * @return {boolean}
      */
+    if (typeof num !== "number")
+        throw new Error("Please num must must be a number");
+
+    if (num <= 0)
+        throw new Error("Please num must be a positive integer");
+
     for(let i = 2; i <= Math.sqrt(num); i++)
         if(num % i === 0)
             return false;
