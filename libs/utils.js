@@ -62,6 +62,15 @@ export function findMaxPalindromeProduct(min, max) {
      * @param {number} max - The max value of the range
      * @return {number}
      */
+    if (typeof min !== "number" || typeof max !== "number")
+        throw new Error("Please min and max must be numbers");
+
+    if (min > max)
+        throw new Error("Please min must be >= max");
+
+    if (min <= 0 || max <= 0)
+        throw new Error("Please min and max must be positive integer");
+
     let maxProduct = 0;
     let first = max;
     let product;

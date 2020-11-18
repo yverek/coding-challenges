@@ -1,5 +1,5 @@
 import { describe, test } from "@jest/globals";
-import { binomialCoefficient, factorial, fibonacci } from './utils.js';
+import {binomialCoefficient, factorial, fibonacci, findMaxPalindromeProduct} from './utils.js';
 
 describe('# binomialCoefficient() #', () => {
     test('binomialCoefficient(\'Rome\', \'Paris\') throws error', () => {
@@ -53,5 +53,26 @@ describe('# fibonacci() #', () => {
         expect(fibonacciSequence.next().value).toBe(21);
         expect(fibonacciSequence.next().value).toBe(34);
         expect(fibonacciSequence.next().value).toBe(55);
+    });
+});
+
+describe('# findMaxPalindromeProduct() #', () => {
+    test('findMaxPalindromeProduct(\'Rome\', \'Paris\') throws error', () => {
+        expect(() => findMaxPalindromeProduct('Rome', 'Paris')).toThrow('Please min and max must be numbers');
+    });
+    test('findMaxPalindromeProduct(10, 5) throws error', () => {
+        expect(() => findMaxPalindromeProduct(10, 5)).toThrow('Please min must be >= max');
+    });
+    test('findMaxPalindromeProduct(-1, -1) throws error', () => {
+        expect(() => findMaxPalindromeProduct(-1, -1)).toThrow('Please min and max must be positive integer');
+    });
+    test('findMaxPalindromeProduct(0, 0) throws error', () => {
+        expect(() => findMaxPalindromeProduct(0, 0)).toThrow('Please min and max must be positive integer');
+    });
+    test('findMaxPalindromeProduct(10, 99) returns 9009', () => {
+        expect(findMaxPalindromeProduct(10, 99)).toBe(9009);
+    });
+    test('findMaxPalindromeProduct(100, 999) returns 906609', () => {
+        expect(findMaxPalindromeProduct(100, 999)).toBe(906609);
     });
 });
