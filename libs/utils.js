@@ -162,17 +162,20 @@ export function getSum(...nums) {
     return nums.reduce((accumulator, current) => accumulator + current);
 }
 
-export function isPalindrome(value) {
+export function isPalindrome(str) {
     /*
-     * Return if a given number or string is palindrome
+     * Return if a given string is palindrome
      *
-     * @param {number|string} num - The number you want to check
+     * @param {string} str - The string you want to check
      * @return {boolean}
      */
-    value = value.toString().split('');
+    if (typeof str !== "string")
+        throw new Error("Please str must be a string");
 
-    for (let i=0; i<Math.floor(value.length / 2); i++)
-        if (value[i] !== value[value.length - 1 - i])
+    str = str.toLocaleLowerCase().split('');
+
+    for (let i=0; i<Math.floor(str.length / 2); i++)
+        if (str[i] !== str[str.length - 1 - i])
             return false;
 
     return true;

@@ -5,7 +5,7 @@ import {
     fibonacci,
     findMaxPalindromeProduct,
     getCollatzSequence,
-    getProduct, getSum
+    getProduct, getSum, isPalindrome
 } from './utils.js';
 
 describe('### binomialCoefficient() ###', () => {
@@ -156,3 +156,26 @@ describe('### getSum() ###', () => {
     });
 });
 
+describe('### isPalindrome() ###', () => {
+    test(`isPalindrome() throws 'Please str must be a string'`, () => {
+        expect(() => isPalindrome()).toThrow('Please str must be a string');
+    });
+    test(`isPalindrome(0) throws 'Please str must be a string'`, () => {
+        expect(() => isPalindrome(0)).toThrow('Please str must be a string');
+    });
+    test(`isPalindrome('Rome') returns false`, () => {
+        expect(isPalindrome('Rome')).toBeFalsy();
+    });
+    test(`isPalindrome('Radar') returns true`, () => {
+        expect(isPalindrome('Radar')).toBeTruthy();
+    });
+    test(`isPalindrome('Computer') returns false`, () => {
+        expect(isPalindrome('Computer')).toBeFalsy();
+    });
+    test(`isPalindrome(String(8008)) returns true`, () => {
+        expect(isPalindrome(String(8008))).toBeTruthy();
+    });
+    test(`isPalindrome(String(997)) returns false`, () => {
+        expect(isPalindrome(String(997))).toBeFalsy();
+    });
+});
