@@ -18,22 +18,22 @@ export function binomialCoefficient(n, k) {
     return Number(factorial(n)) / (Number(factorial(k)) * Number(factorial(n - k)));
 }
 
-export function factorial(n) {
+export function factorial(num) {
     /*
      * Return the factorial of the given value
      *
      * @param {number} num - Value to compute on
      * @return {BigInt}
      */
-    if (typeof n !== "number")
-        throw new Error("Please n must must be a number");
+    if (typeof num !== "number")
+        throw new Error("Please num must must be a number");
 
-    if (n < 0)
-        throw new Error("Please n must be a positive integer");
+    if (num < 0)
+        throw new Error("Please num must be a positive integer");
 
     let i, result = 1n;
 
-    for (i = 2n; i <= n; i++)
+    for (i = 2n; i <= num; i++)
         result *= i;
 
     return result;
@@ -100,6 +100,12 @@ export function getCollatzSequence(num) {
      * @param {number} num - The number you want to use to generate the sequence
      * @return {number[]}
      */
+    if (typeof num !== "number")
+        throw new Error("Please num must must be a number");
+
+    if (num <= 0)
+        throw new Error("Please num must be a positive integer");
+
     const transformEvenNumber = n => n/2;
     const transformOddNumber  = n => (3 * n) + 1;
 

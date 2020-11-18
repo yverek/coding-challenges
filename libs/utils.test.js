@@ -1,5 +1,5 @@
 import { describe, test } from "@jest/globals";
-import {binomialCoefficient, factorial, fibonacci, findMaxPalindromeProduct} from './utils.js';
+import {binomialCoefficient, factorial, fibonacci, findMaxPalindromeProduct, getCollatzSequence} from './utils.js';
 
 describe('# binomialCoefficient() #', () => {
     test('binomialCoefficient(\'Rome\', \'Paris\') throws error', () => {
@@ -21,10 +21,10 @@ describe('# binomialCoefficient() #', () => {
 
 describe('# factorial() #', () => {
     test('factorial(\'Rome\') throws error', () => {
-        expect(() => factorial('Rome')).toThrow('Please n must must be a number');
+        expect(() => factorial('Rome')).toThrow('Please num must must be a number');
     });
     test('factorial(-1) throws error', () => {
-        expect(() => factorial(-1)).toThrow('Please n must be a positive integer');
+        expect(() => factorial(-1)).toThrow('Please num must be a positive integer');
     });
     test('factorial(0) returns 1', () => {
         expect(factorial(0)).toBe(1n);
@@ -74,5 +74,29 @@ describe('# findMaxPalindromeProduct() #', () => {
     });
     test('findMaxPalindromeProduct(100, 999) returns 906609', () => {
         expect(findMaxPalindromeProduct(100, 999)).toBe(906609);
+    });
+});
+
+describe('# getCollatzSequence() #', () => {
+    test('getCollatzSequence(\'Rome\') throws error', () => {
+        expect(() => getCollatzSequence('Rome')).toThrow('Please num must must be a number');
+    });
+    test('getCollatzSequence(-1) throws error', () => {
+        expect(() => getCollatzSequence(-1)).toThrow('Please num must be a positive integer');
+    });
+    test('getCollatzSequence(0) throws error', () => {
+        expect(() => getCollatzSequence(0)).toThrow('Please num must be a positive integer');
+    });
+    test('getCollatzSequence(1) returns [1]', () => {
+        expect(getCollatzSequence(1)).toEqual(expect.arrayContaining([1]));
+    });
+    test('getCollatzSequence(5) returns [16, 8, 4, 2, 1]', () => {
+        expect(getCollatzSequence(5)).toEqual(expect.arrayContaining([16, 8, 4, 2, 1]));
+    });
+    test('getCollatzSequence(10) returns [5, 16, 8, 4, 2, 1]', () => {
+        expect(getCollatzSequence(10)).toEqual(expect.arrayContaining([5, 16, 8, 4, 2, 1]));
+    });
+    test('getCollatzSequence(20) returns [10, 5, 16, 8, 4, 2, 1]', () => {
+        expect(getCollatzSequence(20)).toEqual(expect.arrayContaining([10, 5, 16, 8, 4, 2, 1]));
     });
 });
