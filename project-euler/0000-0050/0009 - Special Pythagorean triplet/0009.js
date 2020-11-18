@@ -15,7 +15,7 @@
  * @solution: 31875000
  */
 
-import { getProduct } from "../../../utils.js";
+import { getProduct } from "../../../libs/utils.js";
 
 export default function problem0009() {
     let a, b, product;

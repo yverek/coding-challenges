@@ -13,7 +13,7 @@
  * @solution: 137846528820
  */
 
-import { binomialCoefficient } from "../../../utils.js";
+import { binomialCoefficient } from "../../../libs/utils.js";
 
 export default function problem0015() {
     const n = 40, k = 20;

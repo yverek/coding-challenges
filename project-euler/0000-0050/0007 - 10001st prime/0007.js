@@ -10,7 +10,7 @@
  * @solution: 104743
  */
 
-import { isPrime } from "../../../utils.js";
+import { isPrime } from "../../../libs/utils.js";
 
 export default function problem0007() {
     const TARGET = 10001;

@@ -15,7 +15,7 @@
  * @solution: 4613732
  */
 
-import { fibonacci } from '../../../utils.js';
+import { fibonacci } from '../../../libs/utils.js';
 
 export default function problem0002() {
     const TARGET = 4000000;

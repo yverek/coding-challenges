@@ -110,7 +110,7 @@
  * @solution: 5537376230
  */
 
-import { getSum } from "../../../utils.js";
+import { getSum } from "../../../libs/utils.js";
 
 export default function problem0013() {
     const data = [

@@ -33,7 +33,7 @@
  * @solution: 23514624000
  */
 
-import { getProduct } from "../../../utils.js";
+import { getProduct } from "../../../libs/utils.js";
 
 export default function problem0008() {
     let i, maxProduct = 0;

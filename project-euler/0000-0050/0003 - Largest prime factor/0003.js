@@ -10,7 +10,7 @@
  * @solution: 6857
  */
 
-import { primeFactors } from '../../../utils.js';
+import { primeFactors } from '../../../libs/utils.js';
 
 export default function problem0003() {
     const TARGET = 600851475143;

@@ -11,7 +11,7 @@
  * @solution: 1366
  */
 
-import { getSum } from "../../../utils.js";
+import { getSum } from "../../../libs/utils.js";
 
 export default function problem0016() {
     const TARGET = 1000;
