@@ -5,7 +5,7 @@ import {
     fibonacci,
     findMaxPalindromeProduct,
     getCollatzSequence,
-    getProduct
+    getProduct, getSum
 } from './utils.js';
 
 describe('### binomialCoefficient() ###', () => {
@@ -131,3 +131,28 @@ describe('### getProduct() ###', () => {
         expect(getProduct(4, 9, 16, 125, 2)).toBe(144000);
     });
 });
+
+describe('### getSum() ###', () => {
+    test(`getSum('Rome') throws 'Please every parameter must be a number'`, () => {
+        expect(() => getSum('Rome')).toThrow('Please every parameter must be a number');
+    });
+    test(`getSum(0, 'Rome') throws 'Please every parameter must be a number'`, () => {
+        expect(() => getSum(0, 'Rome')).toThrow('Please every parameter must be a number');
+    });
+    test(`getSum(-1) throws 'Please nums length must be >= 2'`, () => {
+        expect(() => getSum(-1)).toThrow('Please nums length must be >= 2');
+    });
+    test('getSum(1, 2) returns 3', () => {
+        expect(getSum(1, 2)).toBe(3);
+    });
+    test('getSum(5, 5, 5) returns 15', () => {
+        expect(getSum(5, 5, 5)).toBe(15);
+    });
+    test('getSum(2, 2, 2, 2, 2) returns 10', () => {
+        expect(getSum(2, 2, 2, 2, 2)).toBe(10);
+    });
+    test('getSum(4, 9, 16, 125, 2) returns 156', () => {
+        expect(getSum(4, 9, 16, 125, 2)).toBe(156);
+    });
+});
+
