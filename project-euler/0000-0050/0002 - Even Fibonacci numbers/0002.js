@@ -20,14 +20,20 @@ import { fibonacci } from '../../../libs/utils.js';
 export default function problem0002() {
     const TARGET = 4000000;
     const fibonacciSequence = fibonacci();
-    let result, sum = 0;
+    let result = fibonacciSequence.next().value;
+    let sum = 0;
 
-    do {
+    while (result < TARGET) {
+        // pick every third number of Fibonacci sequence because it's even
+        result = fibonacciSequence.next().value;
+        result = fibonacciSequence.next().value;
         result = fibonacciSequence.next().value;
 
-        if (result % 2 === 0)
-            sum += result;
-    } while (result < TARGET);
+        sum += result;
+    }
+
+    // subtract the last element because it's greater then TARGET
+    sum -= result;
 
     return sum;
 }
