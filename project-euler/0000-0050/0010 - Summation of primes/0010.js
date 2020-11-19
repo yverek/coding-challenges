@@ -17,7 +17,7 @@ export default function problem0010() {
     const TARGET = 2000000;
     let i, sum = 0;
 
-    for (i=0; i<TARGET; i++)
+    for (i=1; i<TARGET; i++)
         if (isPrime(i))
             sum += i;
 
