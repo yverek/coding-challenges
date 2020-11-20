@@ -81,7 +81,10 @@ export function findMaxPalindromeProduct(min, max) {
         while (second >= min) {
             product = first * second;
 
-            if (isPalindrome(product.toString()) && (product > maxProduct))
+            if (product < maxProduct)
+                break;
+
+            if (isPalindrome(product.toString()))
                 maxProduct = product;
 
             second--;
