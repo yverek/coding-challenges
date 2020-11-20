@@ -16,14 +16,12 @@ export default function problem0007() {
     const TARGET = 10001;
     let i = 0, number = 2;
 
-    while (i !== TARGET) {
-        if (isPrime(number))
+    while (i < TARGET) {
+        if (isPrime(number++))
             i++;
 
         if (i === TARGET)
-            break;
-
-        number++;
+            number--;
     }
 
     return number;
