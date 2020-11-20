@@ -29,11 +29,9 @@ export default function problem0002() {
         result = fibonacciSequence.next().value;
         result = fibonacciSequence.next().value;
 
-        sum += result;
+        if (result < TARGET)
+            sum += result;
     }
-
-    // subtract the last element because it's greater then TARGET
-    sum -= result;
 
     return sum;
 }
