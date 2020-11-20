@@ -67,6 +67,7 @@ export default function problem0008() {
         if (tmpSequence.indexOf('0') >= 0)
             continue;
 
+        // map(i => +i) is used to convert string to number
         let tmpMax = getProduct(...tmpSequence.map(i => +i));
         maxProduct = Math.max(tmpMax, maxProduct);
     }
